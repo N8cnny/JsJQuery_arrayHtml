@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+<head>
+<title>Arrays and jQuery</title>
+<style type="text/css">
+	.imgCaption {font-family: verdana; font-size: 20px; text-align: center;}
+	.imgStyle {border: 7px double black; margin-top: 20px}
+</style>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<script type="text/javascript">
+
+jQuery (
+  function(){
+      var myText =  ["Dog", "Bunny",  "Cat", "Rat",  "Gerbil", "Bears"];
+	  
+	  $.each(myText, function(index, value){
+	     var imageID = value;
+		 var textID = value + "Text";
+		 $("<img src=images/" + this +".jpg />").attr("id", imageID).appendTo("body");
+	     $("<div>" + this + "</div>").attr("id", textID).appendTo("body");
+		 }
+		 
+
+		 
+		 
+	  );
+  	   
+	   $("img").load(function(){
+	       var imageWidth = $(this).width();
+		   $("#" + this.id + "Text").css("width", imageWidth);
+		   $("#" + this.id + "Text").addClass("imgCaption");
+		   
+		   $(this).addClass("imgStyle");
+		   
+	      }
+	   
+	    )
+  
+  }
+
+);
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
